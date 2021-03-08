@@ -7,12 +7,14 @@ class ZipAppBar extends StatefulWidget {
   final Color titleColor;
   final Color backgroundColor;
   final bool pined;
+  final ScrollController scrollController;
 
   const ZipAppBar({
     this.title = "",
     this.titleColor = darkBlue,
     this.backgroundColor = white,
     this.pined = true,
+    this.scrollController,
   });
 
   @override
@@ -20,12 +22,36 @@ class ZipAppBar extends StatefulWidget {
 }
 
 class _ZipAppBarState extends State<ZipAppBar> {
+  ScrollController _scrollController;
+  bool showTitle = false;
+  @override
+  void initState() {
+    super.initState();
+    if (widget.scrollController != null) {
+      _scrollController = widget.scrollController;
+      _scrollController.addListener(() {
+        if (_scrollController.position.pixels > 40) {
+          setState(() {
+            showTitle = true;
+          });
+        } else {
+          setState(() {
+            showTitle = false;
+          });
+        }
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
       title: Text(
-        widget.title,
-        style: TextStyle(color: widget.titleColor),
+        showTitle ? widget.title : "",
+        style: TextStyle(
+            color: widget.titleColor,
+            fontSize: 16,
+            fontWeight: FontWeight.bold),
       ),
       toolbarHeight: 45,
       backgroundColor: widget.backgroundColor,
@@ -43,7 +69,8 @@ class ZipAppTitle extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Container(
         height: 50,
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        margin: EdgeInsets.only(bottom: 10),
+        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
         alignment: Alignment.bottomLeft,
         child: Text(
           title,

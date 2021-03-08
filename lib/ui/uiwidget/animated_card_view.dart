@@ -7,12 +7,14 @@ class AnimatedCardView extends StatefulWidget {
   final Function onPressed;
   final double height;
   final Color backgroundColor;
+  final bool hasShadow;
 
   const AnimatedCardView({
     @required this.onPressed,
     this.url,
     this.height = 450,
     this.backgroundColor = darkBlue,
+    this.hasShadow = false,
   });
 
   @override
@@ -40,19 +42,28 @@ class _AnimatedCardViewState extends State<AnimatedCardView>
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.fromLTRB(15, 20, 15, 0),
       child: InkWell(
         highlightColor: white,
         child: Container(
           height: widget.height,
+          width: double.infinity,
           child: ScaleTransition(
               scale: animation,
               child: widget.url == null
                   ? Container(
                       clipBehavior: Clip.hardEdge,
                       decoration: BoxDecoration(
-                        color: widget.backgroundColor,
+                        color: white,
                         borderRadius: BorderRadius.circular(10.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: widget.hasShadow ? Colors.grey : white,
+                            spreadRadius: 5,
+                            blurRadius: 10,
+                            offset: Offset(0, 7), // changes position of shadow
+                          ),
+                        ],
                       ),
                     )
                   : Container(
@@ -60,6 +71,14 @@ class _AnimatedCardViewState extends State<AnimatedCardView>
                       decoration: BoxDecoration(
                         color: widget.backgroundColor,
                         borderRadius: BorderRadius.circular(10.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: widget.hasShadow ? Colors.grey : white,
+                            spreadRadius: 2,
+                            blurRadius: 15,
+                            offset: Offset(0, 10), // changes position of shadow
+                          )
+                        ],
                       ),
                       child: Image.asset(
                         widget.url,

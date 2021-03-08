@@ -63,7 +63,7 @@ class _ShopViewState extends State<ShopView> with WidgetsBindingObserver {
                   child: SizedBox(height: 30),
                 ),
                 SliverToBoxAdapter(
-                  child: _tradingStore(model),
+                  child: _trendingStore(model),
                 ),
                 SliverToBoxAdapter(
                   child: _iWantTo(model),
@@ -74,10 +74,17 @@ class _ShopViewState extends State<ShopView> with WidgetsBindingObserver {
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
-                      return AnimatedCardView(
-                        height: 450,
-                        onPressed: () {},
-                        url: model.bannerData[index].bannerBgImage,
+                      return Column(
+                        children: [
+                          AnimatedCardView(
+                            height: 400,
+                            onPressed: () {},
+                            url: model.bannerData[index].bannerBgImage,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                        ],
                       );
                     },
                     childCount: model.bannerData.length,
@@ -106,7 +113,7 @@ class _ShopViewState extends State<ShopView> with WidgetsBindingObserver {
       height: 70,
       color: white,
       child: Container(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 15),
+        padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
         child: InkWell(
           onTap: () {},
           child: AnimatedContainer(
@@ -147,7 +154,7 @@ class _ShopViewState extends State<ShopView> with WidgetsBindingObserver {
   _generateCard() {
     return Container(
       height: 70,
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: 15),
       child: Container(
         padding: EdgeInsets.all(15),
         decoration: BoxDecoration(
@@ -212,14 +219,14 @@ class _ShopViewState extends State<ShopView> with WidgetsBindingObserver {
     );
   }
 
-  _tradingStore(ShopViewModel model) {
+  _trendingStore(ShopViewModel model) {
     return Container(
         height: 150,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
+              padding: EdgeInsets.fromLTRB(15, 20, 15, 10),
               child: Text(
                 "Trending stores",
                 style: TextStyle(
@@ -230,7 +237,7 @@ class _ShopViewState extends State<ShopView> with WidgetsBindingObserver {
             ),
             Expanded(
               child: ListView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 15),
                 physics: BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemCount: model.storeData.length,
@@ -278,7 +285,7 @@ class _ShopViewState extends State<ShopView> with WidgetsBindingObserver {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
+            padding: EdgeInsets.fromLTRB(15, 20, 15, 10),
             child: Text(
               "I want to ${EmojiParser().get("thinking_face").code}",
               style: TextStyle(
@@ -289,7 +296,7 @@ class _ShopViewState extends State<ShopView> with WidgetsBindingObserver {
           ),
           Expanded(
             child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 15),
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               children: [
