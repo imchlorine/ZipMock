@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:zipmock/ui/cards/cards_view_model.dart';
-class CardsView extends StatefulWidget {
-  const CardsView({
+import 'package:zipmock/ui/settings_page/settings_view_model.dart';
+
+class SettingsView extends StatefulWidget {
+  const SettingsView({
     Key key,
   }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _CardsViewState();
+    return _SettingsViewState();
   }
 }
 
-class _CardsViewState extends State<CardsView> with WidgetsBindingObserver {
+class _SettingsViewState extends State<SettingsView>
+    with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
@@ -25,8 +27,8 @@ class _CardsViewState extends State<CardsView> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<CardsViewModel>.reactive(
-      viewModelBuilder: () => CardsViewModel(),
+    return ViewModelBuilder<SettingsViewModel>.reactive(
+      viewModelBuilder: () => SettingsViewModel(),
       onModelReady: (model) => model.setInitialData(),
       builder: (context, model, child) => Scaffold(
         ///backgroundColor: Colors.grey[100],

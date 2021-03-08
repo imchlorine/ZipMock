@@ -1,6 +1,11 @@
 # zipmock
 
-A new Flutter project.
+Zip App Clone in Flutter, for study purpose.
+
+Best practice of MVVM architecture.
+
+![shop_view](https://github.com/imchlorine/ZipMock/blob/master/screenshot/shop_page.png)
+
 
 ## Getting Started
 

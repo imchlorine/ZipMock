@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:stacked/stacked.dart';
 import 'package:zipmock/ui/share/shared_style.dart';
-import 'package:zipmock/ui/shop/shop_view_model.dart';
+import 'package:zipmock/ui/shop_page/shop_view_model.dart';
 import 'package:zipmock/ui/uiwidget/animated_card_view.dart';
 import 'package:zipmock/ui/uiwidget/app_bar.dart';
 
@@ -65,33 +65,33 @@ class _ShopViewState extends State<ShopView> with WidgetsBindingObserver {
                 SliverToBoxAdapter(
                   child: _tradingStore(model),
                 ),
-                // SliverToBoxAdapter(
-                //   child: SizedBox(height: 30),
-                // ),
                 SliverToBoxAdapter(
                   child: _iWantTo(model),
                 ),
-
+                SliverToBoxAdapter(
+                  child: SizedBox(height: 30),
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      return AnimatedCardView(
+                        height: 450,
+                        onPressed: () {},
+                        url: model.bannerData[index].bannerBgImage,
+                      );
+                    },
+                    childCount: model.bannerData.length,
+                  ),
+                ),
                 SliverToBoxAdapter(
                   child: AnimatedCardView(
+                    height: 150,
                     onPressed: () {},
                     url: "assets/images/deals.png",
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: AnimatedCardView(
-                    onPressed: () {},
-                    url: "assets/images/deals.png",
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: AnimatedCardView(
-                    onPressed: () {},
-                    url: "assets/images/deals.png",
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: SizedBox(height: 1000),
+                  child: SizedBox(height: 50),
                 )
               ],
             ),

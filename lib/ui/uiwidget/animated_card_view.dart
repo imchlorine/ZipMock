@@ -5,10 +5,14 @@ import 'package:zipmock/ui/share/shared_style.dart';
 class AnimatedCardView extends StatefulWidget {
   final String url;
   final Function onPressed;
+  final double height;
+  final Color backgroundColor;
 
   const AnimatedCardView({
-    @required this.url,
     @required this.onPressed,
+    this.url,
+    this.height = 450,
+    this.backgroundColor = darkBlue,
   });
 
   @override
@@ -36,17 +40,32 @@ class _AnimatedCardViewState extends State<AnimatedCardView>
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 20),
       padding: EdgeInsets.all(20),
       child: InkWell(
         highlightColor: white,
         child: Container(
+          height: widget.height,
           child: ScaleTransition(
-            scale: animation,
-            child: Image.asset(
-              "assets/images/deals.png",
-            ),
-          ),
+              scale: animation,
+              child: widget.url == null
+                  ? Container(
+                      clipBehavior: Clip.hardEdge,
+                      decoration: BoxDecoration(
+                        color: widget.backgroundColor,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    )
+                  : Container(
+                      clipBehavior: Clip.hardEdge,
+                      decoration: BoxDecoration(
+                        color: widget.backgroundColor,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Image.asset(
+                        widget.url,
+                        fit: BoxFit.cover,
+                      ),
+                    )),
         ),
         onTap: () {
           controller.forward();

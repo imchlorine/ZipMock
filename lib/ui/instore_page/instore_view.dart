@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:zipmock/ui/instore/instore_view_model.dart';
+import 'package:zipmock/ui/instore_page/instore_view_model.dart';
 class InstoreView extends StatefulWidget {
   const InstoreView({
     Key key,

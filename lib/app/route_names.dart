@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zipmock/ui/bottom_nav/bottom_nav_view.dart';
-import 'package:zipmock/ui/instore/instore_view.dart';
+import 'package:zipmock/ui/instore_page/instore_view.dart';
 
 const String RootRoute = "/";
 const String BottomNavBarRoute = "BottomNavBar";
