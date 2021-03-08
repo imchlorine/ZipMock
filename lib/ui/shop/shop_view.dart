@@ -91,18 +91,6 @@ class _ShopViewState extends State<ShopView> with WidgetsBindingObserver {
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: AnimatedCardView(
-                    onPressed: () {},
-                    url: "assets/images/deals.png",
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: AnimatedCardView(
-                    onPressed: () {},
-                    url: "assets/images/deals.png",
-                  ),
-                ),
-                SliverToBoxAdapter(
                   child: SizedBox(height: 1000),
                 )
               ],
