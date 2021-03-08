@@ -1,10 +1,12 @@
 # zipmock
 
-Zip App Clone in Flutter, for study purpose.
+Clone Zip App in Flutter, for study purpose. 
 
 Best practice of MVVM architecture.
 
-![shop_view](https://github.com/imchlorine/ZipMock/blob/master/screenshot/shop_page.png)
+
+### Shop Page
+<img src="https://github.com/imchlorine/ZipMock/blob/master/screenshot/shop_page.png" width="320">
 
 
 ## Getting Started
