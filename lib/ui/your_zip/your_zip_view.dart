@@ -16,7 +16,11 @@ class YourZipView extends StatefulWidget {
   }
 }
 
-class _YourZipViewState extends State<YourZipView> with WidgetsBindingObserver {
+class _YourZipViewState extends State<YourZipView>
+    with WidgetsBindingObserver, AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   ScrollController _scrollController;
 
   @override
@@ -32,6 +36,8 @@ class _YourZipViewState extends State<YourZipView> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    
+    super.build(context);
     return ViewModelBuilder<YourZipViewModel>.reactive(
       viewModelBuilder: () => YourZipViewModel(),
       onModelReady: (model) => model.setInitialData(),
@@ -95,6 +101,7 @@ class _YourZipViewState extends State<YourZipView> with WidgetsBindingObserver {
   _generateCard() {
     return Container(
       height: 160,
+      margin: EdgeInsets.only(top: 10),
       padding: EdgeInsets.symmetric(horizontal: 15),
       child: Container(
         decoration: BoxDecoration(

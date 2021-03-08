@@ -62,12 +62,13 @@ const TextStyle buttonTitleTextStyle =
 // Colors
 
 const Color darkBlue = Color(0xFF21285e);
-const Color lighyBlue = Colors.blue;
+const Color lighyBlue = Color(0xFF386de9);
 const Color green = Color(0xFF00aeb8);
 const Color white = Color(0xFFffffff);
 const Color grey = Color(0xFFf2f2f2);
 const Color grey1 = Color(0xFFdddddd);
 const Color grey2 = Color(0xFFe8e7ec);
+const Color grey3 = Color(0xFFf9f8fb);
 
 const double fontSize1 = 15;
 const double fontSize2 = 16;

@@ -19,7 +19,11 @@ class ShopView extends StatefulWidget {
   }
 }
 
-class _ShopViewState extends State<ShopView> with WidgetsBindingObserver {
+class _ShopViewState extends State<ShopView>
+    with WidgetsBindingObserver, AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   void initState() {
     super.initState();
@@ -30,6 +34,7 @@ class _ShopViewState extends State<ShopView> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return ViewModelBuilder<ShopViewModel>.reactive(
       viewModelBuilder: () => ShopViewModel(),
       onModelReady: (model) => model.setInitialData(),
