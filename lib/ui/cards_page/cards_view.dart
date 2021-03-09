@@ -115,7 +115,7 @@ class _CardsViewState extends State<CardsView>
                 child: _shoppingOnline(),
               ),
               SliverToBoxAdapter(
-                child: SizedBox(height: 30),
+                child: SizedBox(height: 50),
               )
             ],
           ),
@@ -195,6 +195,9 @@ class _CardsViewState extends State<CardsView>
             ),
             Image.asset(
               'assets/images/how_to_pay.png',
+            ),
+            SizedBox(
+              width: 10,
             ),
           ],
         ),

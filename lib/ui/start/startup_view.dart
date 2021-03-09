@@ -15,7 +15,8 @@ class StartUpView extends StatelessWidget {
       viewModelBuilder: () => StartUpViewModel(),
       onModelReady: (model) => model.handleStartUpLogic(),
       builder: (context, model, child) => AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.dark,
+        value: SystemUiOverlayStyle(
+            statusBarColor: white, statusBarIconBrightness: Brightness.dark),
         child: Scaffold(
           backgroundColor: white,
           body: Center(

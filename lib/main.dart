@@ -33,10 +33,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    //   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    //   statusBarColor: Colors.indigo[400],
-    //   statusBarBrightness: Brightness.dark,
-    // ));
     return MediaQuery(
       child: MaterialApp(
         builder: EasyLoading.init(
@@ -55,12 +51,11 @@ class MyApp extends StatelessWidget {
         ),
         navigatorKey: locator<NavigationService>().navigationKey,
         theme: ThemeData(
-            textTheme: Theme.of(context).textTheme.apply(
+          textTheme: Theme.of(context).textTheme.apply(
               fontFamily: 'Rubik',
               displayColor: darkBlue,
               bodyColor: darkBlue,
               decorationColor: darkBlue),
-          
         ),
         home: StartUpView(),
         onGenerateRoute: generateRoute,

@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:stacked/stacked.dart';
 import 'package:zipmock/ui/share/shared_style.dart';
@@ -38,9 +37,7 @@ class _ShopViewState extends State<ShopView>
     return ViewModelBuilder<ShopViewModel>.reactive(
       viewModelBuilder: () => ShopViewModel(),
       onModelReady: (model) => model.setInitialData(),
-      builder: (context, model, child) => AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.dark,
-        child: Scaffold(
+      builder: (context, model, child) => Scaffold(
           backgroundColor: white,
           body: SafeArea(
             child: CustomScrollView(
@@ -109,7 +106,9 @@ class _ShopViewState extends State<ShopView>
             ),
           ),
         ),
-      ),
+      
+      
+    
     );
   }
 

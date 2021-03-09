@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zipmock/ui/share/shared_style.dart';
 
-/// A button that shows a busy indicator in place of title
 class AnimatedCardView extends StatefulWidget {
   final String url;
   final Function onPressed;
@@ -115,7 +114,6 @@ class _AnimatedCardViewState extends State<AnimatedCardView>
   @override
   void dispose() {
     controller.dispose();
-    print("destory");
     super.dispose();
   }
 }
