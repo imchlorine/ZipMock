@@ -27,7 +27,7 @@ class BottomNavViewModel extends BaseModel {
     notifyListeners();
   }
 
-  void onCenterPressed(int index) {
+  void onCenterPressed() {
     navigationService.navigateTo(InstoreViewRoute);
     notifyListeners();
   }

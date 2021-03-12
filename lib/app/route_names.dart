@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:zipmock/ui/bottom_nav/bottom_nav_view.dart';
 import 'package:zipmock/ui/instore_page/instore_view.dart';
@@ -15,8 +16,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       );
 
     case InstoreViewRoute:
-      return _getPageRoute(
-        routeName: settings.name,
+      return _getPageRouteFullscreenDialog(
         viewToShow: InstoreView(),
       );
 
@@ -31,10 +31,18 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
 PageRoute _getPageRoute({String routeName, Widget viewToShow}) {
   return CustomRoute(
-      settings: RouteSettings(
-        name: routeName,
-      ),
-      builder: (_) => viewToShow);
+    settings: RouteSettings(
+      name: routeName,
+    ),
+    builder: (_) => viewToShow,
+  );
+}
+
+PageRoute _getPageRouteFullscreenDialog({Widget viewToShow}) {
+  return CupertinoPageRoute<bool>(
+    fullscreenDialog: true,
+    builder: (_) => viewToShow,
+  );
 }
 
 class CustomRoute<T> extends MaterialPageRoute<T> {

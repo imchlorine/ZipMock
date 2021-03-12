@@ -36,7 +36,6 @@ class _YourZipViewState extends State<YourZipView>
 
   @override
   Widget build(BuildContext context) {
-    
     super.build(context);
     return ViewModelBuilder<YourZipViewModel>.reactive(
       viewModelBuilder: () => YourZipViewModel(),
@@ -74,13 +73,13 @@ class _YourZipViewState extends State<YourZipView>
                       ),
                     ),
                     AnimatedCardView(
-                      height: 420,
+                      height: (MediaQuery.of(context).size.width - 30) / 0.95,
                       onPressed: () {},
                       hasShadow: true,
                       url: 'assets/images/shop_everywhere.png',
                     ),
                     AnimatedCardView(
-                      height: 420,
+                      height: (MediaQuery.of(context).size.width - 30) / 0.95,
                       onPressed: () {},
                       hasShadow: true,
                       url: 'assets/images/pay_bpay.png',
@@ -100,7 +99,7 @@ class _YourZipViewState extends State<YourZipView>
 
   _generateCard() {
     return Container(
-      height: 160,
+      height: (MediaQuery.of(context).size.width - 30) / 2.5,
       margin: EdgeInsets.only(top: 10),
       padding: EdgeInsets.symmetric(horizontal: 15),
       child: Container(

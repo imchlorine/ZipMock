@@ -39,7 +39,7 @@ class _BottomNavViewState extends State<BottomNavView> {
                 centerItem: CustomBottomAppBarItem(
                     iconData: Icons.qr_code_scanner_sharp, text: 'In-store'),
                 centerOnpress: () {
-                  print("In store");
+                  model.onCenterPressed();
                 },
                 items: [
                   CustomBottomAppBarItem(iconData: Icons.shopping_bag, text: 'Shop'),

@@ -12,7 +12,7 @@ class AnimatedCardView extends StatefulWidget {
     @required this.onPressed,
     this.url,
     this.height = 450,
-    this.backgroundColor = darkBlue,
+    this.backgroundColor = white,
     this.hasShadow = false,
   });
 

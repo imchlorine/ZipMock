@@ -38,77 +38,75 @@ class _ShopViewState extends State<ShopView>
       viewModelBuilder: () => ShopViewModel(),
       onModelReady: (model) => model.setInitialData(),
       builder: (context, model, child) => Scaffold(
-          backgroundColor: white,
-          body: SafeArea(
-            child: CustomScrollView(
-              physics: BouncingScrollPhysics(),
-              slivers: [
-                ZipAppBar(
-                  pined: false,
-                ),
-                ZipAppTitle(
-                  title: "Shop",
-                ),
-                SliverPersistentHeader(
-                  pinned: true,
-                  delegate: _SliverAppBarDelegate(
-                    child: PreferredSize(
-                      preferredSize: Size.fromHeight(70.0),
-                      child: _searchWidget(),
-                    ),
+        backgroundColor: white,
+        body: SafeArea(
+          child: CustomScrollView(
+            physics: BouncingScrollPhysics(),
+            slivers: [
+              ZipAppBar(
+                pined: false,
+              ),
+              ZipAppTitle(
+                title: "Shop",
+              ),
+              SliverPersistentHeader(
+                pinned: true,
+                delegate: _SliverAppBarDelegate(
+                  child: PreferredSize(
+                    preferredSize: Size.fromHeight(70.0),
+                    child: _searchWidget(),
                   ),
                 ),
-                SliverToBoxAdapter(
-                  child: _generateCard(),
+              ),
+              SliverToBoxAdapter(
+                child: _generateCard(),
+              ),
+              SliverToBoxAdapter(
+                child: SizedBox(height: 30),
+              ),
+              SliverToBoxAdapter(
+                child: _trendingStore(model),
+              ),
+              SliverToBoxAdapter(
+                child: _iWantTo(model),
+              ),
+              SliverToBoxAdapter(
+                child: SizedBox(height: 30),
+              ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    return Column(
+                      children: [
+                        AnimatedCardView(
+                          height:
+                              (MediaQuery.of(context).size.width - 30) / 0.95,
+                          onPressed: () {},
+                          url: model.bannerData[index].bannerBgImage,
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                      ],
+                    );
+                  },
+                  childCount: model.bannerData.length,
                 ),
-                SliverToBoxAdapter(
-                  child: SizedBox(height: 30),
+              ),
+              SliverToBoxAdapter(
+                child: AnimatedCardView(
+                  height: (MediaQuery.of(context).size.width - 30) / 2.8,
+                  onPressed: () {},
+                  url: "assets/images/deals.png",
                 ),
-                SliverToBoxAdapter(
-                  child: _trendingStore(model),
-                ),
-                SliverToBoxAdapter(
-                  child: _iWantTo(model),
-                ),
-                SliverToBoxAdapter(
-                  child: SizedBox(height: 30),
-                ),
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                      return Column(
-                        children: [
-                          AnimatedCardView(
-                            height: 400,
-                            onPressed: () {},
-                            url: model.bannerData[index].bannerBgImage,
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                        ],
-                      );
-                    },
-                    childCount: model.bannerData.length,
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: AnimatedCardView(
-                    height: 150,
-                    onPressed: () {},
-                    url: "assets/images/deals.png",
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: SizedBox(height: 50),
-                )
-              ],
-            ),
+              ),
+              SliverToBoxAdapter(
+                child: SizedBox(height: 50),
+              )
+            ],
           ),
         ),
-      
-      
-    
+      ),
     );
   }
 
